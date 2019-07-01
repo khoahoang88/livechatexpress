@@ -55,15 +55,19 @@ exports.chasitorInit = (key, token, id, visitor) => {
 				               "entityName":"Contact"
 				            }
 				         ],
+				         "transcriptFields":[
+			            	"Customer_Display_Name__c"
+			         	 ],
 				         "doKnowledgeSearch":false,
 				         "displayToAgent":true
 				      }
    				],
-				"buttonOverrides" : [],
+				"buttonOverrides" : ["5737F000000cR68"],
 				"receiveQueueUpdates" : true,
 				"isPost" : true
 			}
-		}, (error, response) => {
+			//0K99D000000002l
+		}, (error, response, body) => {
 			if(error){
 				console.log('Error initializing chat: ', error);
 			}
@@ -85,7 +89,7 @@ exports.getSession = (postData) => {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-                    "X-LIVEAGENT-API-VERSION" : 46,
+                    "X-LIVEAGENT-API-VERSION" : 45,
                     "X-LIVEAGENT-AFFINITY" : null
                 }
             }
