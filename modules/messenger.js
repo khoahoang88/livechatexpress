@@ -1,5 +1,3 @@
-"use strict";
-
 let request = require('request'),
 	FB_PAGE_TOKEN = 'EAAGvNc8c3s0BAPfBB97b0tPwDdl3rPZByx2yznT9OV4MACTcZBjCG9NollDCqgVvTtInnRERGRFE01487i9p7HjWZC7bs91wuOtUwdgVfksGNjrCj3XZA24LFQoG2ReAmmWjwEJSV6Lhcs3VtXYRSZAa5gZCUc8H8xL28cbljtNgZDZD',
 	ORG_ID = '00D7F000003CgoK',

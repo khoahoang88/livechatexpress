@@ -18,7 +18,7 @@ console.log('000000')
 //app.use(updateClient)
 
 app.get('/', (req, res) => {
-	console.log('2222: %i', handlers.liveAgentMessage('XXX', 'XXXX'))
+	console.log('2222: %i', handlers.startAgent('XXX', 'XXXX'))
 	console.log('RES %j', res)
 })
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
