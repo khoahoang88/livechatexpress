@@ -33,51 +33,32 @@ exports.chasitorInit = (key, token, id, visitor) => {
 				"language" : LIVE_AGENT_LANGUAGE,
 				"screenResolution" : SCREEN_RES,
 				"visitorName" : visitor,
-				"prechatDetails": [
-				{
-			         "label":"Name",
-			         "value": visitor,
-			         "entityMaps":[
-			            {
-			               "entityName":"Account",
-			               "fieldName":"Name"
-			            }
-			         ],
-			         "transcriptFields":[
-			            ""
-			         ],
-			         "displayToAgent":true
-			      },
-			      {
-			         "label":"Display Id",
-			         "value": visitor,
-			         "entityMaps":[
-			            {
-			               "entityName":"Account",
-			               "fieldName":""
-			            }
-			         ],
-			         "transcriptFields":[
-			            ""
-			         ],
-			         "displayToAgent":true
-			      }
+				"prechatEntities":[  
+				      {  
+				         "showOnCreate":null,
+				         "saveToTranscript":"ContactId",
+				         "linkToEntityName":"Case",
+				         "linkToEntityField":"ContactId",
+				         "entityName":"Contact"
+				      }
 				],
-				"prechatEntities": [
-				{
-			        "entityName":"Account",         
-			         "saveToTranscript":"accountId",
-			         "entityFieldsMaps":[
-			         	{
-			               "fieldName":"Name",
-			               "label":"Name",
-			               "doFind":true,
-			               "isExactMatch":true,
-			               "doCreate":true
-			            }
-			         ]
-			     },
-				],
+   				"prechatDetails":[  
+				      {  
+				         "value":"jon@example.com",
+				         "label":"E-mail Address",
+				         "entityMaps":[  
+				            {  
+				               "isFastFillable":false,
+				               "isExactMatchable":true,
+				               "isAutoQueryable":true,
+				               "fieldName":"Email",
+				               "entityName":"Contact"
+				            }
+				         ],
+				         "doKnowledgeSearch":false,
+				         "displayToAgent":true
+				      }
+   				],
 				"buttonOverrides" : [],
 				"receiveQueueUpdates" : true,
 				"isPost" : true
@@ -100,22 +81,22 @@ exports.getSession = (postData) => {
 			console.log(postData)
             var clientServerOptions = {
                 uri: LIVECHAT_URL + '/chat/rest/System/SessionId',
-                body: JSON.stringify(postData),
+                //body: JSON.stringify(postData),
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
                     "X-LIVEAGENT-API-VERSION" : 46,
-                    "X-LIVEAGENT-SESSION-KEY" : null
-
+                    "X-LIVEAGENT-AFFINITY" : null
                 }
             }
             return new Promise((resolve, reject) => {
             	request(clientServerOptions, function (error, response) {
-                	console.log(error,response.body)
+                	console.log('SESSION=====: ' + error,response.body)
                 	resolve(JSON.parse(response.body))
            		});
             });
 };
+
 
 exports.send = (message, recipient) => {
 	request({

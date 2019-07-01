@@ -1,4 +1,5 @@
 const messenger = require('./messenger')
+let globalSession =''
 exports.startAgent = (sender, values) => {
 	//messenger.send({text : `Hang on a sec.`}, sender);
 	messenger.getSession().then(session => {
@@ -15,9 +16,7 @@ exports.startAgent = (sender, values) => {
 	});
 };
 
-/*exports.agentMessage = (sender, values) => {
+exports.agentMessage = (sender, values) => {
 	console.log('LA session: %j', globalSession);
 	console.log('LA values: %j', values);
 };
-
-*/
