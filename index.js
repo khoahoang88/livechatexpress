@@ -21,4 +21,4 @@ app.get('/', (req, res) => {
 	console.log('2222: %i', handlers.startAgent('XXX', 'XXXX'))
 	console.log('RES %j', res)
 })
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.listen(port, () => console.log('Example app listening on port ${PORT}!'))
