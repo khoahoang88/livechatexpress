@@ -1,0 +1,26 @@
+{
+  "name": "livechatexpress",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "nodemon": "^1.17.1",
+    "hjs": "0.0.6",
+    "hogan-middleware": "^0.2.2",
+    "amqplib": "^0.5.3",
+    "better-queue": "^3.8.10",
+    "memory-cache": "^0.2.0",
+    "moment": "^2.24.0",
+    "nforce": "^1.12.2",
+    "numeral": "^2.0.6",
+    "repeat": "^1.1.4",
+    "request": "^2.88.0"
+  }
+}
